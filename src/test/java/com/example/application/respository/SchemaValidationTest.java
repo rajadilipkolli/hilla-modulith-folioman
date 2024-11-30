@@ -16,7 +16,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 
-@DataJpaTest(properties = {"spring.jpa.hibernate.ddl-auto=validate"})
+@DataJpaTest(properties = {"spring.jpa.hibernate.ddl-auto=update"})
 @Import(SQLContainersConfig.class)
 @AutoConfigureTestDatabase
 class SchemaValidationPostgresTest {
