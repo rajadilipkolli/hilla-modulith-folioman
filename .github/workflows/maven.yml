@@ -39,8 +39,7 @@ jobs:
           echo "cat ~/.testcontainers.properties"
           cat ~/.testcontainers.properties
 
-      - if: ${{ github.ref != 'refs/heads/main' }}
-        name: Build and analyze
+      - name: Build and analyze
         run: ./mvnw clean verify
 
       - if: ${{ github.ref == 'refs/heads/main' }}
