@@ -37,8 +37,8 @@ import org.springframework.data.jpa.domain.Specification;
 import org.vaadin.lineawesome.LineAwesomeIconUrl;
 
 @PageTitle("MutualfundSchems")
-@Route("mutualfundSchems")
-@Menu(order = 1, icon = LineAwesomeIconUrl.FILTER_SOLID)
+@Route("")
+@Menu(order = 0, icon = LineAwesomeIconUrl.FILTER_SOLID)
 @Uses(Icon.class)
 public class MutualfundSchemsView extends Div {
 

@@ -6,16 +6,23 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Launch Application",
+      "name": "Spring Boot-TestApplication<hilla-folioman>",
       "request": "launch",
-      "mainClass": "com.example.application.Application"
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.example.application.TestApplication",
+      "projectName": "hilla-folioman",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
       "type": "java",
-      "request": "attach",
-      "name": "Attach to Application started using Maven",
-      "hostName": "localhost",
-      "port": 5247
+      "name": "Spring Boot-Application<hilla-folioman>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.example.application.Application",
+      "projectName": "hilla-folioman",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }

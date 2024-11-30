@@ -10,3 +10,7 @@ tasks:
   - init: npm install && ./mvnw install -DskipTests=false
 
 
+ports:
+  - port: 5050
+    visibility: public
+    onOpen: open-browser
