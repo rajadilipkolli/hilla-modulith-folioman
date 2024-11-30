@@ -4,7 +4,8 @@
 
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
 
-image: gitpod/workspace-java-21
+image:
+  file: .gitpod.Dockerfile
 
 tasks:
   - init: npm install && ./mvnw install -DskipTests=false

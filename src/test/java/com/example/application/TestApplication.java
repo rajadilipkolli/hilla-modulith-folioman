@@ -1,6 +1,6 @@
 package com.example.application;
 
-import com.example.application.common.TestContainersConfig;
+import com.example.application.common.SQLContainersConfig;
 import org.springframework.boot.SpringApplication;
 
 class TestApplication {
@@ -8,7 +8,7 @@ class TestApplication {
     public static void main(String[] args) {
 
         SpringApplication.from(Application::main)
-                .with(TestContainersConfig.class)
+                .with(SQLContainersConfig.class)
                 .run(args);
     }
 }
