@@ -42,5 +42,4 @@ public class SamplePersonEndpoint {
     public int count() {
         return service.count();
     }
-
 }

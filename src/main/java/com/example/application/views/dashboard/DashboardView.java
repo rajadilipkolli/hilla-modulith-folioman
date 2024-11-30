@@ -1,6 +1,5 @@
 package com.example.application.views.dashboard;
 
-
 import com.example.application.views.dashboard.ServiceHealth.Status;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.board.Board;
@@ -39,8 +38,11 @@ public class DashboardView extends Main {
         addClassName("dashboard-view");
 
         Board board = new Board();
-        board.addRow(createHighlight("Current users", "745", 33.7), createHighlight("View events", "54.6k", -112.45),
-                createHighlight("Conversion rate", "18%", 3.9), createHighlight("Custom metric", "-123.45", 0.0));
+        board.addRow(
+                createHighlight("Current users", "745", 33.7),
+                createHighlight("View events", "54.6k", -112.45),
+                createHighlight("Conversion rate", "18%", 3.9),
+                createHighlight("Custom metric", "-123.45", 0.0));
         board.addRow(createViewEvents());
         board.addRow(createServiceHealth(), createResponseTimes());
         add(board);
@@ -130,19 +132,28 @@ public class DashboardView extends Main {
         grid.setAllRowsVisible(true);
 
         grid.addColumn(new ComponentRenderer<>(serviceHealth -> {
-            Span status = new Span();
-            String statusText = getStatusDisplayName(serviceHealth);
-            status.getElement().setAttribute("aria-label", "Status: " + statusText);
-            status.getElement().setAttribute("title", "Status: " + statusText);
-            status.getElement().getThemeList().add(getStatusTheme(serviceHealth));
-            return status;
-        })).setHeader("").setFlexGrow(0).setAutoWidth(true);
+                    Span status = new Span();
+                    String statusText = getStatusDisplayName(serviceHealth);
+                    status.getElement().setAttribute("aria-label", "Status: " + statusText);
+                    status.getElement().setAttribute("title", "Status: " + statusText);
+                    status.getElement().getThemeList().add(getStatusTheme(serviceHealth));
+                    return status;
+                }))
+                .setHeader("")
+                .setFlexGrow(0)
+                .setAutoWidth(true);
         grid.addColumn(ServiceHealth::getCity).setHeader("City").setFlexGrow(1);
-        grid.addColumn(ServiceHealth::getInput).setHeader("Input").setAutoWidth(true).setTextAlign(ColumnTextAlign.END);
-        grid.addColumn(ServiceHealth::getOutput).setHeader("Output").setAutoWidth(true)
+        grid.addColumn(ServiceHealth::getInput)
+                .setHeader("Input")
+                .setAutoWidth(true)
+                .setTextAlign(ColumnTextAlign.END);
+        grid.addColumn(ServiceHealth::getOutput)
+                .setHeader("Output")
+                .setAutoWidth(true)
                 .setTextAlign(ColumnTextAlign.END);
 
-        grid.setItems(new ServiceHealth(Status.EXCELLENT, "Münster", 324, 1540),
+        grid.setItems(
+                new ServiceHealth(Status.EXCELLENT, "Münster", 324, 1540),
                 new ServiceHealth(Status.OK, "Cluj-Napoca", 311, 1320),
                 new ServiceHealth(Status.FAILING, "Ciudad Victoria", 300, 1219));
 
@@ -223,5 +234,4 @@ public class DashboardView extends Main {
         }
         return theme;
     }
-
 }

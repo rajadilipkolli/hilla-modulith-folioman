@@ -16,12 +16,12 @@ public class ServiceHealth {
     private String theme;
 
     enum Status {
-        EXCELLENT, OK, FAILING;
+        EXCELLENT,
+        OK,
+        FAILING;
     }
 
-    public ServiceHealth() {
-
-    }
+    public ServiceHealth() {}
 
     public ServiceHealth(Status status, String city, int input, int output) {
         this.status = status;
@@ -61,5 +61,4 @@ public class ServiceHealth {
     public void setOutput(int output) {
         this.output = output;
     }
-
 }

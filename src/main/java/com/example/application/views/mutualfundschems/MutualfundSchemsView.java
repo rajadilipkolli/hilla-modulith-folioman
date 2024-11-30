@@ -64,8 +64,8 @@ public class MutualfundSchemsView extends Div {
         // Mobile version
         HorizontalLayout mobileFilters = new HorizontalLayout();
         mobileFilters.setWidthFull();
-        mobileFilters.addClassNames(LumoUtility.Padding.MEDIUM, LumoUtility.BoxSizing.BORDER,
-                LumoUtility.AlignItems.CENTER);
+        mobileFilters.addClassNames(
+                LumoUtility.Padding.MEDIUM, LumoUtility.BoxSizing.BORDER, LumoUtility.AlignItems.CENTER);
         mobileFilters.addClassName("mobile-filters");
 
         Icon mobileIcon = new Icon("lumo", "plus");
@@ -97,7 +97,9 @@ public class MutualfundSchemsView extends Div {
 
             setWidthFull();
             addClassName("filter-layout");
-            addClassNames(LumoUtility.Padding.Horizontal.LARGE, LumoUtility.Padding.Vertical.MEDIUM,
+            addClassNames(
+                    LumoUtility.Padding.Horizontal.LARGE,
+                    LumoUtility.Padding.Vertical.MEDIUM,
                     LumoUtility.BoxSizing.BORDER);
             name.setPlaceholder("First or last name");
 
@@ -151,39 +153,39 @@ public class MutualfundSchemsView extends Div {
 
             if (!name.isEmpty()) {
                 String lowerCaseFilter = name.getValue().toLowerCase();
-                Predicate firstNameMatch = criteriaBuilder.like(criteriaBuilder.lower(root.get("firstName")),
-                        lowerCaseFilter + "%");
-                Predicate lastNameMatch = criteriaBuilder.like(criteriaBuilder.lower(root.get("lastName")),
-                        lowerCaseFilter + "%");
+                Predicate firstNameMatch =
+                        criteriaBuilder.like(criteriaBuilder.lower(root.get("firstName")), lowerCaseFilter + "%");
+                Predicate lastNameMatch =
+                        criteriaBuilder.like(criteriaBuilder.lower(root.get("lastName")), lowerCaseFilter + "%");
                 predicates.add(criteriaBuilder.or(firstNameMatch, lastNameMatch));
             }
             if (!phone.isEmpty()) {
                 String databaseColumn = "phone";
                 String ignore = "- ()";
 
-                String lowerCaseFilter = ignoreCharacters(ignore, phone.getValue().toLowerCase());
+                String lowerCaseFilter =
+                        ignoreCharacters(ignore, phone.getValue().toLowerCase());
                 Predicate phoneMatch = criteriaBuilder.like(
                         ignoreCharacters(ignore, criteriaBuilder, criteriaBuilder.lower(root.get(databaseColumn))),
                         "%" + lowerCaseFilter + "%");
                 predicates.add(phoneMatch);
-
             }
             if (startDate.getValue() != null) {
                 String databaseColumn = "dateOfBirth";
-                predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get(databaseColumn),
-                        criteriaBuilder.literal(startDate.getValue())));
+                predicates.add(criteriaBuilder.greaterThanOrEqualTo(
+                        root.get(databaseColumn), criteriaBuilder.literal(startDate.getValue())));
             }
             if (endDate.getValue() != null) {
                 String databaseColumn = "dateOfBirth";
-                predicates.add(criteriaBuilder.greaterThanOrEqualTo(criteriaBuilder.literal(endDate.getValue()),
-                        root.get(databaseColumn)));
+                predicates.add(criteriaBuilder.greaterThanOrEqualTo(
+                        criteriaBuilder.literal(endDate.getValue()), root.get(databaseColumn)));
             }
             if (!occupations.isEmpty()) {
                 String databaseColumn = "occupation";
                 List<Predicate> occupationPredicates = new ArrayList<>();
                 for (String occupation : occupations.getValue()) {
-                    occupationPredicates
-                            .add(criteriaBuilder.equal(criteriaBuilder.literal(occupation), root.get(databaseColumn)));
+                    occupationPredicates.add(
+                            criteriaBuilder.equal(criteriaBuilder.literal(occupation), root.get(databaseColumn)));
                 }
                 predicates.add(criteriaBuilder.or(occupationPredicates.toArray(Predicate[]::new)));
             }
@@ -206,16 +208,19 @@ public class MutualfundSchemsView extends Div {
             return result;
         }
 
-        private Expression<String> ignoreCharacters(String characters, CriteriaBuilder criteriaBuilder,
-                Expression<String> inExpression) {
+        private Expression<String> ignoreCharacters(
+                String characters, CriteriaBuilder criteriaBuilder, Expression<String> inExpression) {
             Expression<String> expression = inExpression;
             for (int i = 0; i < characters.length(); i++) {
-                expression = criteriaBuilder.function("replace", String.class, expression,
-                        criteriaBuilder.literal(characters.charAt(i)), criteriaBuilder.literal(""));
+                expression = criteriaBuilder.function(
+                        "replace",
+                        String.class,
+                        expression,
+                        criteriaBuilder.literal(characters.charAt(i)),
+                        criteriaBuilder.literal(""));
             }
             return expression;
         }
-
     }
 
     private Component createGrid() {
@@ -228,9 +233,12 @@ public class MutualfundSchemsView extends Div {
         grid.addColumn("occupation").setAutoWidth(true);
         grid.addColumn("role").setAutoWidth(true);
 
-        grid.setItems(query -> samplePersonService.list(
-                PageRequest.of(query.getPage(), query.getPageSize(), VaadinSpringDataHelpers.toSpringDataSort(query)),
-                filters).stream());
+        grid.setItems(query -> samplePersonService
+                .list(
+                        PageRequest.of(
+                                query.getPage(), query.getPageSize(), VaadinSpringDataHelpers.toSpringDataSort(query)),
+                        filters)
+                .stream());
         grid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         grid.addClassNames(LumoUtility.Border.TOP, LumoUtility.BorderColor.CONTRAST_10);
 
@@ -240,5 +248,4 @@ public class MutualfundSchemsView extends Div {
     private void refreshGrid() {
         grid.getDataProvider().refreshAll();
     }
-
 }
