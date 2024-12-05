@@ -40,5 +40,5 @@ jobs:
           cat ~/.testcontainers.properties
 
       - name: Build and analyze
-        run: ./mvnw clean verify
+        run: ./mvnw clean verify -Pproduction
 

@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hilla-folioman
+  name: hilla-modulith-folioman
   namespace: default
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: hilla-folioman
+      app: hilla-modulith-folioman
   template:
     metadata:
       labels:
-        app: hilla-folioman
+        app: hilla-modulith-folioman
     spec:
       containers:
-        - name: hilla-folioman
-          image: hilla-folioman:latest
+        - name: hilla-modulith-folioman
+          image: hilla-modulith-folioman:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 8080
@@ -28,10 +28,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: hilla-folioman-balancer
+  name: hilla-modulith-folioman-balancer
 spec:
   selector:
-    app: hilla-folioman
+    app: hilla-modulith-folioman
   ports:
     - protocol: TCP
       port: 8000 # The port to expose to the outside

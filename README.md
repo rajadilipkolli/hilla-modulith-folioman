@@ -57,13 +57,13 @@ To build the Dockerized version of the project, run
 
 ```
 mvn clean package -Pproduction
-docker build . -t hilla-folioman:latest
+docker build . -t hilla-modulith-folioman:latest
 ```
 
 Once the Docker image is correctly built, you can test it locally using
 
 ```
-docker run -p 8080:8080 hilla-folioman:latest
+docker run -p 8080:8080 hilla-modulith-folioman:latest
 ```
 
 
@@ -94,7 +94,7 @@ kubectl get services
 kubectl get deployments
 ```
 
-If the pods say `Container image "hilla-folioman:latest" is not present with pull policy of Never` then you have not built your application using Docker or there is a mismatch in the name. Use `docker images ls` to see which images are available.
+If the pods say `Container image "hilla-modulith-folioman:latest" is not present with pull policy of Never` then you have not built your application using Docker or there is a mismatch in the name. Use `docker images ls` to see which images are available.
 
 If you need even more information, you can run
 
