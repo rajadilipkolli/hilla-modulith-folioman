@@ -33,4 +33,21 @@
                                  referencedTableSchemaName="portfolio"/>
     </changeSet>
 
+        <changeSet id="1726853021906-4" author="appUser">
+        <!-- Index for foreign key -->
+        <createIndex indexName="idx_schemevalue_user_scheme_detail_id" 
+                    schemaName="portfolio" 
+                    tableName="schemevalue">
+            <column name="user_scheme_detail_id"/>
+        </createIndex>
+        
+        <!-- Composite index for date-based queries -->
+        <createIndex indexName="idx_schemevalue_user_scheme_date" 
+                    schemaName="portfolio" 
+                    tableName="schemevalue">
+            <column name="user_scheme_detail_id"/>
+            <column name="date"/>
+        </createIndex>
+    </changeSet>
+
 </databaseChangeLog>

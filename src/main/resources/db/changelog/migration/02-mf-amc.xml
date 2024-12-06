@@ -23,13 +23,17 @@
             <column name="name" type="${string.type}"/>
             <column name="description" type="${string.type}"/>
             <column name="code" type="${string.type}">
-                <constraints nullable="false"/>
+                <constraints nullable="false" unique="true"/>
             </column>
             <column name="created_by" type="${string.type}"/>
             <column name="created_date" type="${timestamp.type}"/>
             <column name="last_modified_by" type="${string.type}"/>
             <column name="last_modified_date" type="${timestamp.type}"/>
         </createTable>
+
+        <createIndex indexName="idx_mf_amc_code" tableName="mf_amc" schemaName="mfschemes">
+            <column name="code"/>
+        </createIndex>
     </changeSet>
 
 </databaseChangeLog>

@@ -12,11 +12,6 @@
     <property name="timestamp.type" value="timestamp" dbms="!postgresql"/>
     <property name="timestamp.type" value="timestamptz" dbms="postgresql"/>
 
-    <changeSet id="1725375516357-0" author="admin">
-        <sql dbms="postgresql">
-            CREATE SCHEMA IF NOT EXISTS portfolio;
-        </sql>
-    </changeSet>
 
     <changeSet id="1725375516357-1" author="appUser">
         <preConditions onFail="MARK_RAN">
