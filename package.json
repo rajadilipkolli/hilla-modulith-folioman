@@ -49,7 +49,7 @@
     "@vaadin/hilla-generator-utils": "24.5.7",
     "@vitejs/plugin-react": "4.3.3",
     "async": "3.2.6",
-    "glob": "10.4.5",
+    "glob": "11.0.0",
     "prettier": "3.4.2",
     "rollup-plugin-brotli": "3.1.0",
     "rollup-plugin-visualizer": "5.12.0",
