@@ -19,11 +19,11 @@
     },
     {
       "type": "java",
-      "name": "Spring Boot-Application<hilla-folioman>",
+      "name": "Spring Boot-Application<hilla-modulith-folioman>",
       "request": "launch",
       "cwd": "${workspaceFolder}",
       "mainClass": "com.example.application.Application",
-      "projectName": "hilla-folioman",
+      "projectName": "hilla-modulith-folioman",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
     }

@@ -1,10 +1,11 @@
 package com.example.application;
 
+import com.example.application.common.AbstractIntegrationTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.modulith.core.ApplicationModules;
 import org.springframework.modulith.docs.Documenter;
 
-public class ApplicationIntegrationTest extends AbstractIntegrationTest {
+class ApplicationIntegrationTest extends AbstractIntegrationTest {
 
     @Test
     void contextLoads() {
