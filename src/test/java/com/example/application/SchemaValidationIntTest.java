@@ -6,7 +6,7 @@ import com.example.application.common.AbstractIntegrationTest;
 import net.ttddyy.dsproxy.support.ProxyDataSource;
 import org.junit.jupiter.api.Test;
 
-public class SchemeIntTest extends AbstractIntegrationTest {
+class SchemaValidationIntTest extends AbstractIntegrationTest {
 
     @Test
     void testDataSource() {
