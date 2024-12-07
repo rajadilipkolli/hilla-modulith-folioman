@@ -1,4 +1,4 @@
-package com.example.application;
+package com.example.application.common;
 
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
